@@ -1,111 +1,214 @@
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
-.login-wrapper {
-  height: 100vh;
+body {
+  margin: 0;
+  background: #6f6a80;
+}
+
+/* page center */
+.auth-page {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  padding: 20px;
 }
 
-/* Card */
-.login-card {
-  width: 360px;
-  padding: 40px 32px;
+/* main card */
+.auth-card {
+  width: 100%;
+  max-width: 900px;
+  min-height: 520px;
+  display: flex;
   border-radius: 16px;
-  border: 1px solid #eaeaea;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: #1f1d2b;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* LEFT SIDE IMAGE */
+.auth-left {
+  flex: 1;
+  background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  color: white;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* RIGHT SIDE FORM */
+.auth-right {
+  flex: 1;
+  padding: 40px;
+  background: #1f1d2b;
+  color: white;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: center;
 }
 
-/* Title */
-.brand {
-  font-size: 24px;
-  font-weight: 600;
+.auth-right h2 {
   margin: 0;
-}
-
-.subtitle {
-  color: #717171;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* Inputs */
-.login-card input {
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid #dddddd;
-  font-size: 15px;
-  outline: none;
-  transition: border 0.2s ease;
-}
-
-.login-card input:focus {
-  border-color: #000;
-}
-
-/* Button */
-.login-card button {
-  margin-top: 10px;
-  padding: 14px;
-  border-radius: 8px;
-  border: none;
-  background: #ff385c;
-  color: white;
-  font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.05s ease, box-shadow 0.15s ease;
 }
 
-.login-card button:hover {
-  box-shadow: 0 6px 14px rgba(255, 56, 92, 0.3);
-}
-
-.login-card button:active {
-  transform: scale(0.98);
-}
-
-/* Signup */
-.signup {
-  text-align: center;
+.sub {
+  color: #9ca3af;
   font-size: 14px;
-  color: #717171;
+  margin-bottom: 20px;
 }
 
-.signup span {
-  color: #000;
-  font-weight: 500;
-  cursor: pointer;
+/* inputs */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #3a384a;
+  background: transparent;
+  color: white;
 }
 
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* password */
 .password-field {
   position: relative;
+}
+
+.password-field span {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #bbb;
+}
+
+/* checkbox */
+/* checkbox container */
+.terms {
   display: flex;
   align-items: center;
-}
-
-.password-field input {
-  width: 100%;
-  padding-right: 60px;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 14px;
+  gap: 10px;
   font-size: 13px;
-  font-weight: 500;
-  color: #717171;
+  color: #bbb;
+  margin: 15px 0 20px;
   cursor: pointer;
-  user-select: none;
 }
 
-.toggle-password:hover {
-  color: #000;
+/* checkbox size */
+.terms input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #7c5cff; /* modern purple checkbox */
+  cursor: pointer;
+}
+
+/* text */
+.terms span {
+  line-height: 1.4;
+}
+
+/* link style */
+.terms a {
+  color: #7c5cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* main button */
+.primary-btn {
+  background: linear-gradient(135deg, #7c5cff, #5b3fff);
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* divider */
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* socials */
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3a384a;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------------------- */
+/* RESPONSIVE BREAKPOINTS */
+/* ---------------------- */
+
+@media (max-width: 900px) {
+  .auth-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .auth-left {
+    height: 200px;
+  }
+
+  .overlay {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .auth-right {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .socials {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    padding: 25px 15px;
+  }
 }

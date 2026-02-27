@@ -2,53 +2,66 @@ import { useState } from "react";
 import "./Login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Login submitted");
   };
 
   return (
-    <div className="login-wrapper">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <h1 className="brand">Log in</h1>
-        <p className="subtitle">Welcome back</p>
+    <div className="auth-page">
+      <div className="auth-card">
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        {/* password field with toggle */}
-        <div className="password-field">
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <span
-            className="toggle-password"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? "Hide" : "Show"}
-          </span>
+        {/* LEFT PANEL */}
+        <div className="auth-left">
+          <div className="overlay">
+            <h3>Capturing Moments,</h3>
+            <p>Creating Memories</p>
+          </div>
         </div>
 
-        <button type="submit">Log in</button>
+        {/* RIGHT PANEL */}
+        <div className="auth-right">
+          <h2>Create an account</h2>
+          <p className="sub">Already have an account? Log in</p>
 
-        <p className="signup">
-          Don’t have an account? <span>Sign up</span>
-        </p>
-      </form>
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <input placeholder="First name" />
+              <input placeholder="Last name" />
+            </div>
+
+            <input type="email" placeholder="Email" />
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+              />
+              <span onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? "Hide" : "Show"}
+              </span>
+            </div>
+
+            <label className="terms">
+              <input type="checkbox" />
+              <span>
+                I agree to <a href="#">Terms & Conditions</a>
+              </span>
+            </label>
+
+            <button className="primary-btn">Create account</button>
+          </form>
+
+          <div className="divider">Or register with</div>
+
+          <div className="socials">
+            <button>Google</button>
+            <button>Apple</button>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

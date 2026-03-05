@@ -50,7 +50,10 @@ function Login() {
               </span>
             </label>
 
-            <button className="primary-btn">Create account</button>
+            {/* <button className="primary-btn" href="src\components\Dashboard\Dashboard.jsx">Create account</button> */}
+            <a href="/dashboard" className="primary-btn">
+              Create account
+            </a>
           </form>
 
           <div className="divider">Or register with</div>
